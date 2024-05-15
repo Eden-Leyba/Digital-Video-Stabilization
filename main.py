@@ -2,7 +2,7 @@ import numpy as np
 import cv2
 
 # Global variables
-SCALING = 1.2 # Scaling introduced in the tutorial is 4%, changing it to 20% solves the problem
+SCALING = 1.2
 SMOOTHING_RADIUS = 50
 
 def fix_border(_frame):
@@ -103,11 +103,8 @@ for i in range(n_frames - 2):
     curr_pts = curr_pts[index]
 
     # Find transformation matrix
-    m, _ = cv2.estimateAffinePartial2D(prev_pts, curr_pts)
-    """The function introduced in the tutorial estimateRigidTransform() is deprecated. Instead there are two 
-    functions: estimateAffine2D and estimateAffinePartial2D. estimateAffine2D uses 6 degrees of freedom, 
-    and estimateAffinePartial2D uses only 4: translation, rotation, and uniform scaling."""
-
+    m, _ = cv2.estimateAffinePartial2D(prev_pts, curr_
+                                       
     # Extract translation
     dx = m[0, 2]
     dy = m[1, 2]
